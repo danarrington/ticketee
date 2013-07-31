@@ -1,4 +1,6 @@
 Ticketee::Application.routes.draw do
+  get "tickets/new"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -56,5 +58,7 @@ Ticketee::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   root :to => 'projects#index'
-  resources :projects
+  resources :projects do
+     resources :tickets
+  end
 end
